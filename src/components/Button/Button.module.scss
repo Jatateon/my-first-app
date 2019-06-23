@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+button {
+    color:white;
+    background: blue;
+    width: 200px;
+    height: 52px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    margin: 0 0 0 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover {
+    background: yellow;
+    color: blue;
+}
+
+button.red {
+    background: red;
+}
