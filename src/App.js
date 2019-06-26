@@ -61,18 +61,23 @@ class App extends React.PureComponent {
     };
 
     onRemoveButtonClick = (index) => {
+        console.log("TCL: App -> onRemoveButtonClick -> index", index)
         const nextState = produce(this.state, (draft) => {
             if(draft.boards[index].input.remove.length > 0 ){
                 let i = draft.boards[index].input.remove.value;
-                draft.boards[index].items.splice(i,1);
+                console.log("TCL: App -> nextState -> i ", i )
+                // draft.boards[index].items.splice(i,1);
                 draft.boards[index].input.remove = '';
             }
         });
         this.setState(nextState);
     };
 
-    onRemoveItem = (index) => {
-        console.log("TCL: App -> onRemoveItem -> index", index);
+    onRemoveItem = (index, idx) => {
+        const nextState = produce(this.state, (draft) => {
+            draft.boards[index].items.splice(idx,1);
+        });
+        this.setState(nextState);
     };
 
     render() {
@@ -91,18 +96,17 @@ class App extends React.PureComponent {
                             onChangeInput={this.onInputChange}
                             onAddClick={this.onAddButtonClick}
                             onRemoveClick={this.onRemoveButtonClick}
-                            onRemoveItem={this.onRemoveItem(i)}
+                            onRemoveItem={this.onRemoveItem}
                         />)
                     })}
                 </div>
                 <div>
-                    <p className={styles.result}>Los elementos seleccionados son: 
-                        {boards.map((board, i) => {
-                            return (
-                                <p key={i.toString()}>{board.items[board.index]}</p>
-                            )
-                        })}
-                    </p>
+                    <p className={styles.result}>Los elementos seleccionados son: </p>
+                    {boards.map((board, i) => {
+                        return (
+                            <p key={i.toString()}>{board.items[board.index]}</p>
+                        )
+                    })};
                 </div>
             </div>
         );

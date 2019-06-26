@@ -7,7 +7,7 @@ class List extends React.Component {
 
     componentDidMount() {}
 
-    onDeleteItem = (idx) => {        
+    onDeleteItem = (idx) => {
         const {onRemoveItem} = this.props;
         onRemoveItem(idx);
     };
@@ -17,7 +17,7 @@ class List extends React.Component {
             <div className={styles.main}>
                 <ul className={styles.list}>
                 {items.map((item, idx) => (
-                    <li key={i.toString()} className={index === idx ? styles.item_selected : styles.item}>
+                    <li key={idx.toString()} className={index === idx ? styles.item_selected : styles.item}>
                         <p className={styles.item_name}>{item}</p>
                         <div onClick={() =>this.onDeleteItem(idx)}>
                             <IconXMark className={styles.icon}/>
