@@ -25,7 +25,8 @@ class App extends React.PureComponent {
                     add:'Chilaquiles',
                     remove:''
                 },
-            }
+            },
+            
         ]
     };
 
@@ -60,12 +61,17 @@ class App extends React.PureComponent {
     };
 
     onRemoveButtonClick = (index) => {
+        console.log("TCL: App -> onRemoveButtonClick -> index", index)
+        const nextState = produce(this.state, draft => {
+            let i = draft.boards[index].input.remove;
+            draft.boards[index].items.splice(i,1);
+        });
+        this.setState(nextState);
+    };
+
+    onRemoveItem = (index, idx) => {
         const nextState = produce(this.state, (draft) => {
-            if(draft.boards[index].input.remove.length > 0 ){
-                let i = draft.boards[index].input.remove.value;
-                draft.boards[index].items.splice(i,1);
-                draft.boards[index].input.remove = '';
-            }
+            draft.boards[index].items.splice(idx,1);
         });
         this.setState(nextState);
     };
@@ -73,28 +79,31 @@ class App extends React.PureComponent {
     render() {
         const {boards} = this.state;
         return(
-            <div>
+            <div className={styles.container_boards}>
                 <p className={styles.tittle}>¡Bienvenidos al curso de programación de cómputo movil!</p>
-                    <div className={styles.container_boards}>
-                        {boards.map((board,i) => {                            
-                            return (
-                            <Board 
-                                object={board}
-                                index={i}
-                                onButtonClick={()=> this.onHandleButton(i)} 
-                                onChangeInput={this.onInputChange}
-                                onAddClick={this.onAddButtonClick}
-                                onRemoveClick={this.onRemoveButtonClick}
-                            />)
-                        })}
-                    </div>
-                <p className={styles.result}>Los elementos seleccionados son: 
-                        {boards.map((board) => {
-                            return (
-                                <p>{board.items[board.index]}</p>
-                            )
-                        })}
-                </p>
+                <div className={styles.container_boards}>
+                    {boards.map((board,i) => {                            
+                        return (
+                        <Board 
+                            key={i.toString()}
+                            object={board}
+                            index={i}
+                            onButtonClick={()=> this.onHandleButton(i)} 
+                            onChangeInput={this.onInputChange}
+                            onAddClick={this.onAddButtonClick}
+                            onRemoveClick={()=>this.onRemoveButtonClick(i)}
+                            onRemoveItem={this.onRemoveItem}
+                        />)
+                    })}
+                </div>
+                <div>
+                    <p className={styles.result}>Los elementos seleccionados son: </p>
+                    {boards.map((board, i) => {
+                        return (
+                            <p key={i.toString()}>{board.items[board.index]}</p>
+                        )
+                    })}
+                </div>
             </div>
         );
     }
