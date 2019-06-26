@@ -62,13 +62,9 @@ class App extends React.PureComponent {
 
     onRemoveButtonClick = (index) => {
         console.log("TCL: App -> onRemoveButtonClick -> index", index)
-        const nextState = produce(this.state, (draft) => {
-            if(draft.boards[index].input.remove.length > 0 ){
-                let i = draft.boards[index].input.remove.value;
-                console.log("TCL: App -> nextState -> i ", i )
-                // draft.boards[index].items.splice(i,1);
-                draft.boards[index].input.remove = '';
-            }
+        const nextState = produce(this.state, draft => {
+            let i = draft.boards[index].input.remove;
+            draft.boards[index].items.splice(i,1);
         });
         this.setState(nextState);
     };
@@ -95,7 +91,7 @@ class App extends React.PureComponent {
                             onButtonClick={()=> this.onHandleButton(i)} 
                             onChangeInput={this.onInputChange}
                             onAddClick={this.onAddButtonClick}
-                            onRemoveClick={this.onRemoveButtonClick}
+                            onRemoveClick={()=>this.onRemoveButtonClick(i)}
                             onRemoveItem={this.onRemoveItem}
                         />)
                     })}
@@ -106,7 +102,7 @@ class App extends React.PureComponent {
                         return (
                             <p key={i.toString()}>{board.items[board.index]}</p>
                         )
-                    })};
+                    })}
                 </div>
             </div>
         );

@@ -3,7 +3,6 @@ import styles from './Board.module.scss';
 import Button from '../Button/Button';
 import List from '../List/List';
 import Input from '../Input/Input';
-import {IconPlus} from '../../Resources/svg/Icons';
 
 class Board extends React.Component {
     state = {};
