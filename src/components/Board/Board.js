@@ -11,7 +11,10 @@ class Board extends React.Component {
     componentDiMount() {}
 
     onRemoveItem = (index) => {
-        console.log("TCL: Board -> onRemoveItem -> index", index);
+        const {onRemoveItem} = this.props;
+        console.log("TCL: Board -> onRemoveItem -> i", i)
+        console.log("TCL: Board -> onRemoveItem -> index,", index,)
+        onRemoveItem(index);
 
     };
 
@@ -22,7 +25,7 @@ class Board extends React.Component {
                 <p className={styles.title}>{object.title}</p>
                 <div className={styles.container}>
                     <div className={styles.main}>
-                        <List items={object.items} index={object.index} onRemoveItem={() => this.onRemoveItem()} />
+                        <List items={object.items} index={object.index} onRemoveItem={(idx) => this.onRemoveItem(idx)} />
                         <Button type={"forward"} onClick={onButtonClick}/>
                     </div>
                     <div className={styles.group}>

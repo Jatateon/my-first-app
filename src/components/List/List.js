@@ -7,20 +7,19 @@ class List extends React.Component {
 
     componentDidMount() {}
 
-    onDeleteItem = (index) => {
-        // console.log("TCL: List -> onDeleteItem -> index", index)
+    onDeleteItem = (idx) => {        
         const {onRemoveItem} = this.props;
-        onRemoveItem(index);
+        onRemoveItem(idx);
     };
     render() {
         const { items, index } = this.props;
         return (
             <div className={styles.main}>
                 <ul className={styles.list}>
-                {items.map((item, i) => (
-                    <li key={i.toString()} className={index === i ? styles.item_selected : styles.item}>
+                {items.map((item, idx) => (
+                    <li key={i.toString()} className={index === idx ? styles.item_selected : styles.item}>
                         <p className={styles.item_name}>{item}</p>
-                        <div onClick={this.onDeleteItem(i)}>
+                        <div onClick={() =>this.onDeleteItem(idx)}>
                             <IconXMark className={styles.icon}/>
                         </div>
                     </li>
