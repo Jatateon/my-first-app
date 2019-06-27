@@ -18,7 +18,10 @@ class Board extends React.Component {
         const {object, onButtonClick, onAddClick, onChangeInput, onRemoveClick, index} = this.props;
         return (
             <div  className={styles.board}>
-                <p className={styles.title}>{object.title}</p>
+                <div className={styles.group}>
+                    <p className={styles.title}>{object.title}</p>
+                    <Button type={'remove'} onClick={() => onAddClick(index)}/>
+                </div>
                 <div className={styles.container}>
                     <div className={styles.main}>
                         <List items={object.items} index={object.index} onRemoveItem={(idx) => this.onRemoveItem(index,idx)} />

@@ -14,8 +14,8 @@
 }
 
 .button {
-    color:white;
-    background: blue;
+    color:black;
+    background: #cfcfcf;
     // width: 200px;
     height: 57px;
     font-size: 1rem;
@@ -28,8 +28,8 @@
 }
 
 .button:hover {
-    background: yellow;
-    color: blue;
+    background: #737373;
+    color: black;
 }
 
 .button.red {
@@ -46,5 +46,5 @@
 }
 
 .icon:hover {
-    fill: darkblue;
+    fill: black;
 }
