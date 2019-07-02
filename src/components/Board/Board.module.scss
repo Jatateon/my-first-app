@@ -5,9 +5,9 @@
 .board {
     max-width: 500px;
     border: 1px solid lightgray;
-    border-radius: 8px;
+    border-radius: 8px;    
     $box-shadow: 0 4px 6px hsla(0, 0, 0, .1);
-    margin: 16px;
+    margin: 16px;    
 }
 
 .container {
@@ -20,11 +20,9 @@
 }
 
 .group {
-    // border: 1px solid lightgray;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    // flex-wrap: wrap;
+    justify-content: space-between;    
     padding: 0 0 5px 0;
 }
 
@@ -32,9 +30,11 @@
     font-size: 1.2rem;
     font-weight: 700;
     text-align: center;
+    flex-grow: 1;
 }
 
-.container_input {
+.container_input,
+.group.title  {
 	padding: 0 4px 0 0;
 	flex: 4 1 auto;
 }
@@ -42,4 +42,14 @@
 .group .main {
     flex:1 1 auto;
 }
+.button_close {
+    color:#000;
+}
+.button_close:hover {
+    background-color: #800000 !important;
+    color:#4d4d4d !important;
+}
 
+.button_add:hover {
+    background-color: green !important;
+}

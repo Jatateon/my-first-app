@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
-import { IconPlus, IconXMark, IconForward } from '../../Resources/svg/Icons';
+import { IconPlus, IconXMark, IconForward, IconRemove } from '../../Resources/svg/Icons';
 
 export default class Button extends React.Component {
     static propTypes = {
@@ -14,6 +14,9 @@ export default class Button extends React.Component {
                 return <IconPlus className={styles.icon}/>
             case 'forward':
                 return <IconForward className={styles.icon}/>
+            case 'remove':
+                return <IconRemove className={styles.icon}/>
+            case 'delete':
             default:
                 return <IconXMark className={styles.icon} />
         }
@@ -22,7 +25,7 @@ export default class Button extends React.Component {
         const { onClick, type, className}  = this.props;
         return (
             <div className={styles.main}>
-                <button onClick={onClick} className={styles.button + ' ' + className }>
+                <button onClick={onClick} className={styles.button + ' ' + className}>
                     {this.selectIcon(type)}
                 </button>
             </div>

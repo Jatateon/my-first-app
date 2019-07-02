@@ -9,6 +9,15 @@ export const IconXMark = (props) => {
     );
 };
 
+export const IconRemove = (props) => {
+    const {className} = props;
+    return (
+        <svg className={className} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">
+            <path d="M24 21h-17l-7-7.972 7-8.028h17v16zm-16.09-14l-5.252 6.023 5.247 5.977h14.095v-12h-14.09zm6.09 4.586l2.586-2.586 1.414 1.414-2.586 2.586 2.586 2.586-1.414 1.414-2.586-2.586-2.586 2.586-1.414-1.414 2.586-2.586-2.586-2.586 1.414-1.414 2.586 2.586z"/>
+        </svg>
+    );
+};
+
 export const IconPlus = (props) => {
     const {className} = props;
     return (
