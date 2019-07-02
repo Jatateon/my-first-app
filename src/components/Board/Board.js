@@ -31,7 +31,7 @@ class Board extends React.Component {
                         <div className={styles.container_input}>
                             <Input input={object.input.add} onChange={(event) => onChangeInput(event, index, 'add')}/>
                         </div>
-                        <Button type={'plus'} className={"green"} onClick={() => onAddClick(index)}/>
+                        <Button type={'plus'} className={styles.button_add} onClick={() => onAddClick(index)}/>
                     </div>
                     <div className={styles.group}>
                         <div className={styles.container_input}>

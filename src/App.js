@@ -130,7 +130,7 @@ class App extends React.PureComponent {
                             <div className={styles.container_input}>
                                 <Input input={input} onChange={(event) => this.onNameChange(event)}/>
                             </div>
-                            <Button classNanme={'green'} type={'plus'} onClick={this.onAddBoardClick}/>
+                            <Button className={styles.button_add} type={'plus'} onClick={this.onAddBoardClick}/>
                         </div>
                     </div>
                 </div>
