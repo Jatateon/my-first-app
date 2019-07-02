@@ -57,7 +57,6 @@ class App extends React.PureComponent {
             }
         });
         this.setState(nextState);
-        console.log("TCL: App -> onAddBoardClick -> nextState", nextState)
     };
     
     onHandleButton = (key) => {
@@ -76,6 +75,14 @@ class App extends React.PureComponent {
         const value = event.target.value
         const nextState = produce( this.state, (draft) => {
             draft.boards[index].input[type] = value;
+        });
+        this.setState(nextState);
+    };
+
+    onRemoveBoardClick = (index) => {
+        const nextState = produce(this.state, (draft) => {            
+            draft.boards.splice(index,1);
+            draft.input = '';
         });
         this.setState(nextState);
     };
@@ -107,21 +114,21 @@ class App extends React.PureComponent {
     };
 
     render() {
-        const {boards} = this.state;
+        const {boards, input} = this.state;
         return( 
             <div>
                 <div>
                     <div className={styles.flex_hor}>
                         <p className={styles.tittle +  ' ' + styles.ajustable}>Mis tableros</p>
                         <div className={styles.elementos + ' ' + styles.rigth}>
-                            <b>{boards.length} </b>Elementos
+                            <b>{boards.length} </b>Elemento{boards.length > 1 ? 's':''}
                         </div>
                     </div>
                     <div className={styles.flex_vert}>
                         <p className={styles.subtitle + ' ' + styles.left}>Nombre del tablero</p>
                         <div className={styles.group  + ' ' + styles.left}>
                             <div className={styles.container_input}>
-                                <Input input={boards.input} onChange={(event) => this.onNameChange(event)}/>
+                                <Input input={input} onChange={(event) => this.onNameChange(event)}/>
                             </div>
                             <Button classNanme={'green'} type={'plus'} onClick={this.onAddBoardClick}/>
                         </div>
@@ -140,6 +147,7 @@ class App extends React.PureComponent {
                                 onAddClick={this.onAddButtonClick}
                                 onRemoveClick={()=>this.onRemoveButtonClick(i)}
                                 onRemoveItem={this.onRemoveItem}
+                                onRemoveBoardClick = {this.onRemoveBoardClick}
                             />)
                         })}
                     </div>                    

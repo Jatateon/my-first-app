@@ -7,16 +7,15 @@
     justify-content: center;
 }
 
-.group .main {
+.group.main {
     flex:2;
     widows: 100px !important;
     text-align: center;
 }
 
 .button {
-    color:black;
-    background: #cfcfcf;
-    // width: 200px;
+    color:#333;
+    background: #d6d6d6;
     height: 57px;
     font-size: 1rem;
     font-weight: 500;
@@ -28,17 +27,13 @@
 }
 
 .button:hover {
-    background: #737373;
+    background: #adadad;
     color: black;
-}
-
-.button.red {
-    background: red;
 }
 
 .icon {
     width: 24px;
-    height: 24px;
+    height: 24px; 
     flex: 2;
     cursor: pointer;
     outline: none;

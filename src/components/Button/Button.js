@@ -25,7 +25,7 @@ export default class Button extends React.Component {
         const { onClick, type, className}  = this.props;
         return (
             <div className={styles.main}>
-                <button onClick={onClick} className={styles.button + ' ' + className }>
+                <button onClick={onClick} className={styles.button + ' ' + className}>
                     {this.selectIcon(type)}
                 </button>
             </div>
