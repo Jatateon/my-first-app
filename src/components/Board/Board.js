@@ -9,23 +9,36 @@ class Board extends React.Component {
 
     componentDiMount() {}
 
+    onRemoveItem = (index, idx) => {
+        const {onRemoveItem} = this.props;        
+        onRemoveItem(index, idx);
+    };
+
     render() {
-        
-        const {object, onButtonClick, onAddClick, onChangeInput, onRemoveClick, index} = this.props;
+        const {object, onButtonClick, onAddClick, onChangeInput, onRemoveClick, index, onRemoveBoardClick} = this.props;
         return (
-            <div className={styles.board}>
-                <p>{object.title}</p>
-                <div className={styles.container_add}>
-                    <Input input={object.input.add} onChange={(event) => onChangeInput(event, index, 'add')}/>
-                    <Button label={'Add'} onClick={() => onAddClick(index)}/>
+            <div  className={styles.board}>
+                <div className={styles.group}>
+                    <p className={styles.title}>{object.title}</p>
+                    <Button className={styles.button_close} type={'remove'} onClick={() => onRemoveBoardClick(index)} />
                 </div>
-                <div className={styles.main}>
-                    <List items={object.items} index={object.index}/>
-                    <Button label={object.label} onClick={onButtonClick}/>
-                </div>
-                <div>
-                    <Input input={object.input.remove} onChange={(event) => onChangeInput(event, index, 'remove')}/>
-                    <Button label={'Remove'} onClick={() => onRemoveClick(index)}/>
+                <div className={styles.container}>
+                    <div className={styles.main}>
+                        <List items={object.items} index={object.index} onRemoveItem={(idx) => this.onRemoveItem(index,idx)} />
+                        <Button type={"forward"} onClick={onButtonClick}/>
+                    </div>
+                    <div className={styles.group}>
+                        <div className={styles.container_input}>
+                            <Input input={object.input.add} onChange={(event) => onChangeInput(event, index, 'add')}/>
+                        </div>
+                        <Button type={'plus'} className={styles.button_add} onClick={() => onAddClick(index)}/>
+                    </div>
+                    <div className={styles.group}>
+                        <div className={styles.container_input}>
+                            <Input input={object.input.remove} onChange={(event) => onChangeInput(event, index, 'remove')}/>
+                        </div>
+                        <Button type={''} onClick={() => onRemoveClick(index)}/>
+                    </div>
                 </div>
             </div>
         );

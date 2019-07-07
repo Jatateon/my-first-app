@@ -2,25 +2,44 @@
     box-sizing: border-box;
 }
 
-button {
-    color:white;
-    background: blue;
-    width: 200px;
-    height: 52px;
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.group.main {
+    flex:2;
+    widows: 100px !important;
+    text-align: center;
+}
+
+.button {
+    color:#333;
+    background: #d6d6d6;
+    height: 57px;
     font-size: 1rem;
     font-weight: 500;
     border: none;
     border-radius: 4px;
-    margin: 0 0 0 16px;
+    margin: 0 0 0 0px;
     cursor: pointer;
     outline: none;
 }
 
-button:hover {
-    background: yellow;
-    color: blue;
+.button:hover {
+    background: #adadad;
+    color: black;
 }
 
-button.red {
-    background: red;
+.icon {
+    width: 24px;
+    height: 24px; 
+    flex: 2;
+    cursor: pointer;
+    outline: none;
+    fill: white;
+}
+
+.icon:hover {
+    fill: black;
 }

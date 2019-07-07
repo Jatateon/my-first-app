@@ -22,7 +22,27 @@
     text-align: center;
     color:blue;
     margin: 8px 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .item_selected {
     color:red;
+}
+.item_name {
+    flex:4;
+    height: 24px;
+}
+
+.icon {
+    margin-top: 20px;
+    width: 24px;
+    height: 24px;
+    flex: 2;    
+    cursor: pointer;
+    outline: none;
+}
+
+.icon:hover {
+    fill: red;
 }

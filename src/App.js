@@ -1,104 +1,30 @@
 import React from 'react';
 import styles from './App.module.scss';
-import Board from './components/Board/Board';
-import produce from 'immer/dist/immer';
+import {Route, Redirect, withRouter, Switch} from 'react-router-dom';
+import DocumentTitle from 'react-document-title';
+import Topbar from './components/Topbar/Topbar';
+import Tableros from './screens/Tableros/Tableros';
+import Report from './screens/Report/Report';
+import Summary from './screens/Summary/Summary';
 
-class App extends React.PureComponent {
-    state = {
-        boards:[
-            {
-                title: 'girls',
-                items: ['Monica','Julieta','María','Antonieta'],
-                index: 0,
-                label: 'Siguente',
-                input: {
-                    add:'Maria',
-                    remove:''
-                },
-            },
-            {
-                title: 'food',
-                items: ['mole','chiles rellenos','pizza','spaguetti','memelas'],
-                index: 0,
-                label: 'Siguente',
-                input:{
-                    add:'Chilaquiles',
-                    remove:''
-                },
-            }
-        ]
-    };
-
-    onHandleButton = (key) => {
-        const nextState = produce(this.state, (draft) => {
-            if(draft.boards[key].items.length > draft.boards[key].index + 1) {
-                draft.boards[key].index = draft.boards[key].index + 1;
-            } 
-            else {
-                draft.boards[key].index = 0;
-            } 
-        });
-        this.setState(nextState);
-    };
-
-    onInputChange = (event, index, type) => {
-        const value = event.target.value
-        const nextState = produce( this.state, (draft) => {
-            draft.boards[index].input[type] = value;
-        });
-        this.setState(nextState);
-    };
-
-    onAddButtonClick = (index) => {
-        const nextState = produce(this.state, (draft)=>{
-            if(draft.boards[index].input.add.length > 0) {
-                draft.boards[index].items = draft.boards[index].items.concat([draft.boards[index].input.add]);
-            } 
-            draft.boards[index].input.add = '';
-        });
-        this.setState(nextState);
-    };
-
-    onRemoveButtonClick = (index) => {
-        const nextState = produce(this.state, (draft) => {
-            if(draft.boards[index].input.remove.length > 0 ){
-                let i = draft.boards[index].input.remove.value;
-                draft.boards[index].items.splice(i,1);
-                draft.boards[index].input.remove = '';
-            }
-        });
-        this.setState(nextState);
-    };
-
-    render() {
-        const {boards} = this.state;
-        return(
-            <div>
-                <p className={styles.tittle}>¡Bienvenidos al curso de programación de cómputo movil!</p>
-                    <div className={styles.container_boards}>
-                        {boards.map((board,i) => {                            
-                            return (
-                            <Board 
-                                object={board}
-                                index={i}
-                                onButtonClick={()=> this.onHandleButton(i)} 
-                                onChangeInput={this.onInputChange}
-                                onAddClick={this.onAddButtonClick}
-                                onRemoveClick={this.onRemoveButtonClick}
-                            />)
-                        })}
-                    </div>
-                <p className={styles.result}>Los elementos seleccionados son: 
-                        {boards.map((board) => {
-                            return (
-                                <p>{board.items[board.index]}</p>
-                            )
-                        })}
-                </p>
-            </div>
-        );
+export default withRouter (
+    class App extends React.PureComponent {
+        render() {
+            return (
+                <div>
+                    <Topbar />
+                    <Switch>
+                        <RouteWithTitle exact title="Tableros" path="/tableros" component={Tableros}/>
+                        <RouteWithTitle exact title="Reporte" path="/reporte" component={Report} />
+                        <RouteWithTitle exact title="Resumen" path="/resumen" component={Summary} />
+                        <Redirect to={'/inicio'} />
+                    </Switch>
+                </div>
+            );
+        };
     }
+);
 
-}
-
-export default App;
+export const RouteWithTitle = ({title, render, component: Comp, ...props}) => (
+    <Route {...props} render={(p) => <DocumentTitle title={title}>{render ? render(p): <Comp {...p}/>}</DocumentTitle>}/>
+);

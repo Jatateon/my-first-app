@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+.main {
+    width: 100%;
+}
+
+.title {
+    font-weight: 900;
+    padding: 0 32px 0 32px;
+    font-size: 1.2rem;
+}
+
+.icons {
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-end;
+    padding: 0 16px 0 16px;
+    margin-top:16px;
+}
+
+.container_icon {
+    margin: auto 0;
+    width: 16px;
+    height: 16px;
+    margin-right:16px;
+}
+
+.icon, 
+.icon_selected {
+    fill: gray;
+    cursor: pointer;
+    outline: none;
+}
+
+.icon_selected {
+    fill: blue !important;
+}
