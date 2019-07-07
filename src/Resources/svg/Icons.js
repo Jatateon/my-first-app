@@ -35,3 +35,21 @@ export const IconForward = (props) => {
         </svg>
     );
 };
+
+export const IconTable = (props) => {
+    const {className} = props;
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24">
+            <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/>
+        </svg>
+    );
+};
+
+export const IconChart = (props) => {
+    const {className} = props;
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24">
+            <path d="M7 19h-6v-11h6v11zm8-18h-6v18h6v-18zm8 11h-6v7h6v-7zm1 9h-24v2h24v-2z"/>
+        </svg>
+    );
+};

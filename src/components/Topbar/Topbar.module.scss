@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+.main {
+    height: 64px;
+    background: white;
+    border-bottom: 1px solid lightgray;
+}
+
+.list {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.item {
+    color: black;
+    padding: 8px 0 0 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.item:hover {
+    cursor: pointer;
+    color: blue;
+    outline: none;
+}
