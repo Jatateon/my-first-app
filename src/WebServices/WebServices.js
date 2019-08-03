@@ -18,6 +18,6 @@ export default {
 		return await WebService.get(url + '/' + character);
 	},
 	async getWheaterByCityId({city}) {
-		return await WebService.get(urlWeather + '?id=' + city + '&APPID=f4b7aed55eedf34fc3e857d2707e9af1'); 
+		return await WebService.get(urlWeather + '?id=' + city + '&APPID=f4b7aed55eedf34fc3e857d2707e9af1&units=metric'); 
 	}
 };
