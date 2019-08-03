@@ -6,6 +6,7 @@ import Topbar from './components/Topbar/Topbar';
 import Tableros from './screens/Tableros/Tableros';
 import Report from './screens/Report/Report';
 import Summary from './screens/Summary/Summary';
+import Dashboard from './screens/Dashboard/Dashboard';
 
 export default withRouter (
     class App extends React.PureComponent {
@@ -14,6 +15,7 @@ export default withRouter (
                 <div>
                     <Topbar />
                     <Switch>
+                        <RouteWithTitle exact title="Api" path="/dashboard" component={Dashboard}/>
                         <RouteWithTitle exact title="Tableros" path="/tableros" component={Tableros}/>
                         <RouteWithTitle exact title="Reporte" path="/reporte" component={Report} />
                         <RouteWithTitle exact title="Resumen" path="/resumen" component={Summary} />
