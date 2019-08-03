@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styles from './Summary.module.scss';
 import Table from '../../components/Table/Table';
-import summaryData from '../../resources/jsons/summaryData.json';
-import summaryHeader from '../../resources/jsons/summaryHeaders.json';
-import {IconTable, IconChart } from '../../resources/svg/Icons';
+import summaryData from '../../Resources/jsons/summaryData.json';
+import summaryHeader from '../../Resources/jsons/summaryHeaders.json';
+import {IconTable, IconChart } from '../../../src/Resources/svg/Icons';
 import produce from 'immer/dist/immer';
 import {BarChart, Bar, XAxis, YAxis,} from 'recharts';
 import SimpleBarChart from '../../components/Charts/SimpleBarChart';
