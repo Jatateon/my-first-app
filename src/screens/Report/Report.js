@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styles from './Report.module.scss';
 import Table from '../../components/Table/Table';
-import cashoutData from '../../resources/jsons/cashoutData.json';
-import cashoutHeader from '../../resources/jsons/cashoutHeader.json';
+import cashoutData from '../../Resources/jsons/cashoutData.json';
+import cashoutHeader from '../../Resources/jsons/cashoutHeader.json';
 
 export default (class Report extends React.PureComponent {
     state = {};
