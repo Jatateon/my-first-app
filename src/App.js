@@ -8,6 +8,7 @@ import Report from './screens/Report/Report';
 import Summary from './screens/Summary/Summary';
 import Dashboard from './screens/Dashboard/Dashboard';
 import Countries from './screens/Countries/Countries';
+import examen from './screens/examen/examen';
 
 export default withRouter (
     class App extends React.PureComponent {
@@ -16,6 +17,7 @@ export default withRouter (
                 <div>
                     <Topbar />
                     <Switch>
+                        <RouteWithTitle exact title="examen" path="/examen" component={examen}/>
                         <RouteWithTitle exact title="Weather" path="/Weather" component={Dashboard}/>
                         <RouteWithTitle exact title="Tableros" path="/tableros" component={Tableros}/>
                         <RouteWithTitle exact title="Reporte" path="/reporte" component={Report} />
