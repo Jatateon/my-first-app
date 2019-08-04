@@ -1,17 +1,39 @@
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .main {
-    display: flex;
-    flex-direction: column;
-    margin: 32px 0px 0px 32px;
+	display: flex;
+	flex-direction: column;
+	margin: 32px 0px 0px 32px;
 }
 
-.busqueda{
-    display: flex;
-    flex-direction: row;
+.busqueda {
+	display: flex;
+	flex-direction: row;
 }
-.card{
-    margin:1rem;
+
+.card {
+	margin: 1rem;
+	display: flex;
+	flex-direction: row;
+}
+.info {
+    margin: 32px;
+    display: flex;
+}
+
+.flag {
+    margin: 32px;
+    width: 128px;
+	height: 128px;
+	display: flex;
+}
+
+.listInfo {
+    list-style: none;
+}
+
+.inputText {
+    width: 512px;
 }
