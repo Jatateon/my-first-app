@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
-import { IconPlus, IconXMark, IconForward, IconRemove } from '../../Resources/svg/Icons';
+import { IconPlus, IconXMark, IconForward, IconRemove, IconSearch } from '../../Resources/svg/Icons';
 
 export default class Button extends React.Component {
     static propTypes = {
@@ -10,6 +10,8 @@ export default class Button extends React.Component {
     };
     selectIcon = (type) => {
         switch (type) {
+            case 'search':
+                return <IconSearch className={styles.icon}/>
             case 'plus':
                 return <IconPlus className={styles.icon}/>
             case 'forward':

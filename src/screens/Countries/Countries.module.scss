@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 32px 0px 0px 32px;
+}
+
+.busqueda{
+    display: flex;
+    flex-direction: row;
+}
+.card{
+    margin:1rem;
+}

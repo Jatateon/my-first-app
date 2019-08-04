@@ -14,10 +14,18 @@ export default {
 			user
 		};
 	},
+
 	async getCharacter({ character }) {
 		return await WebService.get(url + '/' + character);
 	},
-	async getWheaterByCityId({city}) {
-		return await WebService.get(urlWeather + '?id=' + city + '&APPID=f4b7aed55eedf34fc3e857d2707e9af1&units=metric'); 
+
+	async getWheaterByCityId({ city }) {
+		// console.log(urlWeather + '?id=' + city + '&APPID=f4b7aed55eedf34fc3e857d2707e9af1&units=metric');
+		return await WebService.get(urlWeather + '?id=' + city + '&APPID=f4b7aed55eedf34fc3e857d2707e9af1&units=metric');
+	},
+
+	async getDataFromFullUrl({ fullUrl }) {
+        // console.log("TCL: getDataFromFullUrl -> fullUrl", fullUrl);
+		return await WebService.get(fullUrl);
 	}
 };
