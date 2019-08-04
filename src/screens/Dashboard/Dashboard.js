@@ -1,9 +1,7 @@
 import * as React from 'react';
 import styles from './Dashboard.module.scss';
-import WebServices from '../../../src/WebServices/WebServices';
-import { async } from 'q';
+import WebServices from '../../WebServices/WebServices';
 import produce from 'immer';
-import List from '../../components/List/List';
 
 export default (class Dashboard extends React.PureComponent {
 	state = {

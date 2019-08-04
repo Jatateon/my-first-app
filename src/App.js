@@ -7,6 +7,7 @@ import Tableros from './screens/Tableros/Tableros';
 import Report from './screens/Report/Report';
 import Summary from './screens/Summary/Summary';
 import Dashboard from './screens/Dashboard/Dashboard';
+import Countries from './screens/Countries/Countries';
 
 export default withRouter (
     class App extends React.PureComponent {
@@ -15,10 +16,11 @@ export default withRouter (
                 <div>
                     <Topbar />
                     <Switch>
-                        <RouteWithTitle exact title="Api" path="/dashboard" component={Dashboard}/>
+                        <RouteWithTitle exact title="Weather" path="/Weather" component={Dashboard}/>
                         <RouteWithTitle exact title="Tableros" path="/tableros" component={Tableros}/>
                         <RouteWithTitle exact title="Reporte" path="/reporte" component={Report} />
                         <RouteWithTitle exact title="Resumen" path="/resumen" component={Summary} />
+                        <RouteWithTitle exact title="Countries" path="/Countries" component={Countries} />
                         <Redirect to={'/inicio'} />
                     </Switch>
                 </div>

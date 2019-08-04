@@ -14,8 +14,8 @@ export default (class Topbar extends React.PureComponent {
                     <Link className={styles.item} to={'/tableros'}>
                         <li className={styles.item}>Inicio</li>
                     </Link>
-                    <Link className={styles.item} to={'/dashboard'}>
-                        <li className={styles.item}>Api</li>
+                    <Link className={styles.item} to={'/Weather'}>
+                        <li className={styles.item}>Weather</li>
                         </Link>
                     <Link className={styles.item} to={'/reporte'}>
                         <li className={styles.item}>Reporte</li>
@@ -23,8 +23,8 @@ export default (class Topbar extends React.PureComponent {
                     <Link className={styles.item} to={'/resumen'}>
                         <li className={styles.item}>Resumen</li>
                     </Link>
-                    <Link className={styles.item} to={'/usuarios'}>
-                        <li className={styles.item}>Usuarios</li>
+                    <Link className={styles.item} to={'/Countries'}>
+                        <li className={styles.item}>Countries</li>
                     </Link>
                 </ul>
             </div>
