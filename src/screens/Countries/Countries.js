@@ -56,8 +56,9 @@ export default (class Countries extends React.PureComponent {
 		return (
 			<div className={styles.main}>
 				<div className={styles.busqueda}>
-					<Input className={styles.inputText} input={input} onChange={this.onChangeInput} styles="width:512px" />
+					<Input input={input} onChange={this.onChangeInput} estilos={styles.inputText}/>
 					<Button label={'Go'} type={'search'} onClick={this.onClickSearch} />
+                    {console.log("TCL: Countries -> render -> styles.inputText", styles.inputText)}
 				</div>
 				<div className={styles.card}>
 					<div className={styles.info}>
