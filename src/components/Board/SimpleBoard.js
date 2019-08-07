@@ -19,7 +19,6 @@ class SimpleBoard extends React.Component {
             <div  className={styles.board}>
                 <div className={styles.group}>
                     <p className={styles.title}>{object.title}</p>
-                    <Button className={styles.button_close} type={'remove'} onClick={() => onRemoveBoardClick(index)} />
                 </div>
                 <div className={styles.container}>
                     <div className={styles.main}>

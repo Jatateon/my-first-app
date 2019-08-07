@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    margin-top:16px;
 }
 
 .calendar {
@@ -33,7 +34,12 @@
 }
 
 .inputsItems {
-	display: flex;
+    display: flex;
+    flex-direction: row;
+    margin: 0 16px 16px;
+} 
+.inputsItemsLabel {
+    padding: 0 32px;
 }
 
 .table {
