@@ -1,0 +1,38 @@
+* {
+	box-sizing: border-box;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	margin: 0 0 0 32px;
+}
+
+.boards {
+	display: flex;
+}
+
+.table {
+	display: flex;
+}
+
+.captura {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.calendar {
+    display: flex;
+    flex: 1;
+}
+
+.inputsItems {
+	display: flex;
+}
+
